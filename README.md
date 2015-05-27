@@ -92,4 +92,4 @@ $modelDefaultUser = User::find(1);
 $modelTestingUser = User::on('testing')->find(1);
 ```
 
-Wnat more information? Please see the `examples` directory.
+Want more information? Please see the `examples` directory.
