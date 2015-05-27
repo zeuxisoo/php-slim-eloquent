@@ -1,7 +1,10 @@
 {
-    "require-dev": {
-        "slim/slim": "^2.6",
+    "require": {
+        "illuminate/pagination": "^5.0",
         "illuminate/database": "^5.0"
+    },
+    "require-dev": {
+        "slim/slim": "^2.6"
     },
     "autoload": {
         "psr-4": {

@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('Asia/Hong_Kong');
+
 // Load autoloader
 require_once dirname(dirname(__FILE__)).'/vendor/autoload.php';
 
@@ -25,6 +27,8 @@ $app->get('/', function() use ($app) {
 
     $modelDefaultUser = User::find(1);
     $modelTestingUser = User::on('testing')->find(1);
+
+    $paginateUser = User::paginate();
 
     echo "<h3>Connection (Default)</h3>";
     foreach($connectionDefaultUser as $name => $value) {
@@ -59,5 +63,12 @@ $app->get('/', function() use ($app) {
         echo "<strong>{$name}</strong>: ",$value;
         echo "</p>";
     }
+
+    echo "<hr>";
+
+    echo "<h3>Paginate</h3>";
+    echo "<pre>";
+    print_r($paginateUser->toArray());
+    echo "</pre>";
 });
 $app->run();
