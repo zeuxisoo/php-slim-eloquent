@@ -6,18 +6,12 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 class ModelMiddleware extends Middleware {
 
-    private function makeCapsule() {
+    private function makeCapsule($databases) {
         $capsule = new Capsule;
-        $capsule->addConnection([
-            'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'database'  => 'test',
-            'username'  => 'root',
-            'password'  => '',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_general_ci',
-            'prefix'    => ''
-        ]);
+
+        foreach($databases as $name => $database) {
+            $capsule->addConnection($database, $name);
+        }
 
         $capsule->setAsGlobal();
         $capsule->bootEloquent();
@@ -26,8 +20,9 @@ class ModelMiddleware extends Middleware {
     }
 
     public function call() {
-        $app     = $this->app;
-        $capsule = $this->makeCapsule();
+        $app       = $this->app;
+        $databases = $app->config('databases');
+        $capsule   = $this->makeCapsule($databases);
 
         $app->container->singleton('db', function() use ($capsule) {
             return $capsule;
