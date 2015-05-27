@@ -1,4 +1,16 @@
 {
+    "name": "zeuxisoo/slim-eloquent",
+    "type": "library",
+    "description": "PHP laravel eloquent on slim framework",
+    "keywords": ["laravel", "eloquent", "database", "model", "slim"],
+    "homepage": "https://github.com/zeuxisoo/php-slim-eloquent/",
+    "license": "BSD-2-Clause",
+    "authors": [{
+            "name": "Zeuxis Lo",
+            "email": "seekstudio@gmail.com",
+            "homepage": "http://www.not.im/",
+            "role": "Developer"
+    }],
     "require": {
         "illuminate/pagination": "^5.0",
         "illuminate/database": "^5.0"
