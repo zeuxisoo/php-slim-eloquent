@@ -8,9 +8,6 @@ define('CONFIG_ROOT',  WWW_ROOT.'/config');
 // Load autoloader
 require_once PROJECT_ROOT.'/vendor/autoload.php';
 
-// Load model without autoloader
-require_once WWW_ROOT.'/app/Models/User.php';
-
 // Import slim framework and user model
 use Slim\Slim;
 use App\Models\User;
