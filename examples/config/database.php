@@ -4,7 +4,7 @@ return [
         'default' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'default',
+            'database'  => 'opinz',
             'username'  => 'root',
             'password'  => '',
             'charset'   => 'utf8',
@@ -14,7 +14,7 @@ return [
         'testing' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'testing',
+            'database'  => 'test',
             'username'  => 'root',
             'password'  => '',
             'charset'   => 'utf8',

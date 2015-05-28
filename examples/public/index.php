@@ -1,18 +1,22 @@
 <?php
 date_default_timezone_set('Asia/Hong_Kong');
 
+define('WWW_ROOT',     dirname(dirname(__FILE__)));
+define('PROJECT_ROOT', dirname(WWW_ROOT));
+define('CONFIG_ROOT',  WWW_ROOT.'/config');
+
 // Load autoloader
-require_once dirname(dirname(__FILE__)).'/vendor/autoload.php';
+require_once PROJECT_ROOT.'/vendor/autoload.php';
 
 // Load model without autoloader
-require_once dirname(__FILE__).'/Models/User.php';
+require_once WWW_ROOT.'/app/Models/User.php';
 
 // Import slim framework and user model
 use Slim\Slim;
-use Models\User;
+use App\Models\User;
 
 // Read database config
-$config = require('config.php');
+$config = require(CONFIG_ROOT.'/database.php');
 
 // Boot application
 $app = new Slim();
